@@ -35,11 +35,15 @@ export default function Contact() {
 
     try {
       const formDataToSend = new FormData(e.currentTarget);
-      await fetch('/__forms.html', {
+      const response = await fetch('/__forms.html', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formDataToSend).toString(),
       });
+
+      if (!response.ok) {
+        throw new Error('Form submission failed');
+      }
 
       alert('Thank you for your message! I will get back to you soon.');
       setFormData({ name: '', email: '', message: '' });
