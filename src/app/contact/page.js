@@ -30,6 +30,24 @@ export default function Contact() {
     return () => observer.disconnect();
   }, []);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const formDataToSend = new FormData(e.currentTarget);
+      await fetch('/__forms.html', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formDataToSend).toString(),
+      });
+
+      alert('Thank you for your message! I will get back to you soon.');
+      setFormData({ name: '', email: '', message: '' });
+    } catch {
+      alert('Unable to send your message. Please try again.');
+    }
+  };
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -74,8 +92,7 @@ export default function Contact() {
 
         <form
           name="contact"
-          method="POST"
-          data-netlify="true"
+          onSubmit={handleSubmit}
           className="flex flex-col gap-8 md:gap-10"
         >
           <input type="hidden" name="form-name" value="contact" />
