@@ -30,13 +30,6 @@ export default function Contact() {
     return () => observer.disconnect();
   }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! I will get back to you soon.');
-    setFormData({ name: '', email: '', message: '' });
-  };
-
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -79,7 +72,13 @@ export default function Contact() {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-8 md:gap-10">
+        <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          className="flex flex-col gap-8 md:gap-10"
+        >
+          <input type="hidden" name="form-name" value="contact" />
           <div
             data-animate
             className="transition-all duration-1000"

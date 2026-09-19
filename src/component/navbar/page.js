@@ -132,18 +132,34 @@ export default function Navbar() {
         {/* Desktop Socials */}
         <div className="hidden md:flex items-center gap-6">
           <a
-            href="#"
+            href="https://instagram.com/drejulian_"
+            target="_blank"
+            rel="noreferrer"
             aria-label="Instagram"
             className="transition-transform duration-200 hover:scale-110"
           >
-            <Image src="/svg/ig.svg" alt="Instagram" width={28} height={28} className="w-7 h-7 md:w-8 md:h-8" />
+            <Image
+              src="/svg/ig.svg"
+              alt="Instagram"
+              width={28}
+              height={28}
+              className="w-7 h-7 md:w-8 md:h-8"
+            />
           </a>
           <a
-            href="#"
+            href="https://github.com/drejulian"
+            target="_blank"
+            rel="noreferrer"
             aria-label="GitHub"
             className="transition-transform duration-200 hover:scale-110"
           >
-            <Image src="/svg/github.svg" alt="GitHub" width={28} height={28} className="w-7 h-7 md:w-8 md:h-8" />
+            <Image
+              src="/svg/github.svg"
+              alt="GitHub"
+              width={28}
+              height={28}
+              className="w-7 h-7 md:w-8 md:h-8"
+            />
           </a>
         </div>
       </div>
@@ -181,10 +197,20 @@ export default function Navbar() {
           ))}
         </div>
         <div className="flex items-center gap-8 mt-8">
-          <a href="#" aria-label="Instagram">
+          <a
+            href="https://instagram.com/drejulian_"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Instagram"
+          >
             <Image src="/svg/ig.svg" alt="Instagram" width={40} height={40} />
           </a>
-          <a href="#" aria-label="GitHub">
+          <a
+            href="https://github.com/drejulian"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="GitHub"
+          >
             <Image src="/svg/github.svg" alt="GitHub" width={40} height={40} />
           </a>
         </div>

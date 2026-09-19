@@ -61,15 +61,15 @@ export default function Home() {
           className="flex-1 max-w-xl transition-all duration-1000"
           style={{ opacity: 0, transform: 'translateX(-50px)' }}
         >
-          <p className="text-black font-futura font-book text-[16px] sm:text-[18px] md:text-[20px] mb-3">
+          <p className="text-black font-futura font-book text-[14px] sm:text-[16px] md:text-[18px] mb-3">
             Hey, I am Derbi Tri Julian
           </p>
-          <h2 className="text-primary font-ragick text-[24px] sm:text-[34px] md:text-[42px] lg:text-[52px] leading-[0.95]">
+          <h2 className="text-primary font-ragick text-[20px] sm:text-[24px] md:text-[32px] lg:text-[40px] leading-[0.95]">
             WEB & MOBILE
             <br />
             DEVELOPER
           </h2>
-          <p className="text-black font-futura font-book text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] leading-relaxed">
+          <p className="text-black font-futura font-book text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] leading-relaxed">
             Building digital experiences that are functional,
             <br />
             intuitive, and easy to use.
@@ -82,7 +82,7 @@ export default function Home() {
           className="hidden md:flex flex-shrink-0 md:w-auto transition-all duration-1000"
           style={{ opacity: 0, transform: 'translateX(50px)' }}
         >
-          <div className="flex flex-col items-center gap-6 md:gap-8">
+          <div className="flex flex-col items-center gap-4 md:gap-6">
             {/* Download CV button */}
             <div
               data-animate
