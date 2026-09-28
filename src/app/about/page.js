@@ -27,22 +27,22 @@ export default function About() {
   const services = [
     {
       icon: '/svg/web.svg',
-      title: 'Web Development',
+      title: 'Web\nDevelopment',
       description: 'Responsive web apps focused on usability',
     },
     {
       icon: '/svg/mobile.svg',
-      title: 'Mobile Development',
+      title: 'Mobile\nDevelopment',
       description: 'Flutter applications built for real-world use.',
     },
     {
       icon: '/svg/iot.svg',
-      title: 'IoT Development',
+      title: 'IoT\nDevelopment',
       description: 'Connected systems & sensors',
     },
     {
       icon: '/svg/uiux.svg',
-      title: 'UI/UX Design',
+      title: 'UI/UX\nDesign',
       description: 'Clean & intuitive interfaces',
     },
   ];
@@ -71,7 +71,6 @@ export default function About() {
       skills: [
         { name: 'MQTT', icon: '/svg/mqtt.svg' },
         { name: 'Arduino', icon: '/svg/arduino.svg' },
-        { name: 'IoT', icon: '/svg/iot.svg' },
       ],
     },
     {
@@ -85,17 +84,17 @@ export default function About() {
   ];
 
   return (
-    <div className="mt-10 md:mt-20">
+    <div className="mt-6 md:mt-10">
       <div className="grid gap-6 md:gap-9">
         <div
           data-animate
           className="grid justify-center relative gap-4 md:gap-6 transition-all duration-1000"
           style={{ opacity: 0, transform: 'translateY(50px)' }}
         >
-          <h1 className="font-futura font-bold text-[30px] sm:text-[38px] md:text-[48px] text-primary text-center">
+          <h1 className="font-futura font-bold text-[24px] sm:text-[32px] md:text-[48px] text-primary text-center">
             About
           </h1>
-          <p className="text-black font-futura font-book text-base sm:text-lg md:text-xl lg:text-2xl text-center px-4 md:px-0 max-w-full mx-auto">
+          <p className="text-black font-futura font-book text-sm sm:text-base md:text-lg lg:text-xl text-center max-w-full mx-auto">
             I'm a Web & Mobile Developer with a background in Informatics
             Engineering and a passion for creating meaningful digital
             experiences. I enjoy turning ideas and real-world problems into
@@ -110,41 +109,41 @@ export default function About() {
           </p>
         </div>
 
-        <div className="grid gap-4 md:gap-6 mt-8">
+        <div className="grid gap-4 md:gap-6">
           <h1
             data-animate
-            className="font-futura font-bold text-[30px] sm:text-[38px] md:text-[48px] text-primary text-center transition-all duration-1000"
+            className="font-futura font-bold text-[24px] sm:text-[32px] md:text-[48px] text-primary text-center transition-all duration-1000"
             style={{ opacity: 0, transform: 'translateY(30px)' }}
           >
             What I Do
           </h1>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 px-4 md:px-0 max-w-full mx-auto">
+          <div className="grid grid-cols-4 gap-3 md:gap-12">
             {services.map((service, index) => (
               <div
                 key={index}
                 data-animate
-                className="flex flex-col items-center gap-4 transition-all duration-1000"
+                className="flex flex-col items-center gap-2 md:gap-4 transition-all duration-1000"
                 style={{
                   opacity: 0,
                   transform: 'translateY(30px)',
                   transitionDelay: `${index * 100}ms`,
                 }}
               >
-                <div className="bg-white border border-gray-100 rounded-full w-[100px] h-[100px] md:w-[120px] md:h-[120px] flex items-center justify-center shadow-sm">
+                <div className="bg-white border border-gray-100 rounded-full w-[60px] h-[60px] md:w-[120px] md:h-[120px] flex items-center justify-center shadow-sm">
                   <Image
                     src={service.icon}
                     alt={service.title}
                     width={60}
                     height={60}
-                    className="w-[50px] h-[50px] md:w-[60px] md:h-[60px]"
+                    className="w-[24px] h-[24px] md:w-[55px] md:h-[55px]"
                   />
                 </div>
                 <div className="text-center">
-                  <h3 className="font-futura font-bold text-lg md:text-xl text-black mb-1">
+                  <h3 className="font-futura font-bold text-[10px] sm:text-sm md:text-lg lg:text-xl text-black mb-1 whitespace-pre-line">
                     {service.title}
                   </h3>
-                  <p className="font-futura font-book text-sm md:text-base text-black leading-tight">
+                  <p className="font-futura font-book text-[8px] sm:text-xs md:text-sm text-black leading-tight">
                     {service.description}
                   </p>
                 </div>
@@ -153,31 +152,31 @@ export default function About() {
           </div>
         </div>
 
-        <div className="grid gap-4 mt-6">
+        <div className="grid gap-4">
           <h1
             data-animate
-            className="font-futura font-bold text-[30px] sm:text-[38px] md:text-[48px] text-primary text-center transition-all duration-1000"
+            className="font-futura font-bold text-[24px] sm:text-[32px] md:text-[48px] text-primary text-center transition-all duration-1000"
             style={{ opacity: 0, transform: 'translateY(30px)' }}
           >
             Skills
           </h1>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 px-4 md:px-0 max-w-6xl mx-auto">
+          <div className="grid grid-cols-4 gap-2 md:gap-6 justify-items-center">
             {skillCategories.map((category, categoryIndex) => (
               <div
                 key={categoryIndex}
                 data-animate
-                className="flex flex-col items-center gap-3 transition-all duration-1000"
+                className="flex flex-col items-center gap-2 md:gap-3 transition-all duration-1000 w-full"
                 style={{
                   opacity: 0,
                   transform: 'translateY(30px)',
                   transitionDelay: `${categoryIndex * 100}ms`,
                 }}
               >
-                <h3 className="font-futura font-bold text-sm md:text-base text-black uppercase">
+                <h3 className="font-futura font-bold text-[9px] sm:text-sm md:text-lg lg:text-xl text-black uppercase">
                   {category.category}
                 </h3>
-                <div className="bg-white border border-gray-100 rounded-3xl px-6 py-4 flex items-center justify-center gap-4 shadow-sm">
+                <div className="bg-white border border-gray-100 rounded-3xl px-3 py-2 md:px-6 md:py-4 flex items-center justify-center gap-1 md:gap-4 shadow-sm w-fit">
                   {category.skills.map((skill, skillIndex) => (
                     <Image
                       key={skillIndex}
@@ -185,7 +184,7 @@ export default function About() {
                       alt={skill.name}
                       width={40}
                       height={40}
-                      className="w-[35px] h-[35px] md:w-[40px] md:h-[40px]"
+                      className="w-[16px] h-[16px] sm:w-[24px] sm:h-[24px] md:w-[40px] md:h-[40px]"
                     />
                   ))}
                 </div>

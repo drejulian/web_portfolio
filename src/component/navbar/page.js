@@ -65,7 +65,7 @@ export default function Navbar() {
     <nav
       className={`
       sticky top-0 z-50
-      pt-6 md:pt-10
+      pt-4 md:pt-10
       transition-all duration-300 ease-in-out
       mx-4 md:mx-30
       ${scrolled ? 'md:pt-4' : 'md:pt-10'}
@@ -76,31 +76,31 @@ export default function Navbar() {
         bg-white
        rounded-4xl
         flex items-center justify-between
-        px-4 py-4 md:px-6 md:py-6 
+        px-3 py-3 md:px-6 md:py-6 
         transition-all duration-300 ease-in-out
         shadow-[0_0_4px_rgba(0,0,0,0.15)]
       "
       >
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="shrink-0 cursor-pointer font-futura font-bold text-lg md:text-2xl text-primary"
+          className="shrink-0 cursor-pointer font-futura font-bold text-base md:text-2xl text-primary"
         >
           dre
         </button>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden flex flex-col gap-1.5 cursor-pointer z-50"
+          className="md:hidden flex flex-col gap-1 cursor-pointer z-50"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <span
-            className={`w-6 h-0.5 bg-[#6d001a] block transition-all ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}
+            className={`w-5 h-0.5 bg-[#6d001a] block transition-all ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}
           ></span>
           <span
-            className={`w-6 h-0.5 bg-[#6d001a] block transition-all ${isMenuOpen ? 'opacity-0' : ''}`}
+            className={`w-5 h-0.5 bg-[#6d001a] block transition-all ${isMenuOpen ? 'opacity-0' : ''}`}
           ></span>
           <span
-            className={`w-6 h-0.5 bg-[#6d001a] block transition-all ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}
+            className={`w-5 h-0.5 bg-[#6d001a] block transition-all ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}
           ></span>
         </button>
 
