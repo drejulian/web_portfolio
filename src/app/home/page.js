@@ -66,7 +66,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="mt-8 sm:mt-10 md:mt-13">
+    <div className="mt-8 sm:mt-10 md:mt-13 xl:pb-8">
       {/* Portfolio heading with overlapping photo */}
       <div className="relative flex justify-center mb-8 md:mb-8 xl:mb-24">
         <h1
