@@ -67,7 +67,7 @@ export default function Navbar() {
       sticky top-0 z-50
       pt-4 md:pt-10
       transition-all duration-300 ease-in-out
-      mx-4 md:mx-30
+      mx-4 md:mx-8 lg:mx-16 xl:mx-30
       ${scrolled ? 'md:pt-4' : 'md:pt-10'}
     `}
     >

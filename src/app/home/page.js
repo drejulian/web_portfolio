@@ -68,7 +68,7 @@ export default function Home() {
   return (
     <div className="mt-8 sm:mt-10 md:mt-13">
       {/* Portfolio heading with overlapping photo */}
-      <div className="relative flex justify-center mb-8 md:mb-32 px-4">
+      <div className="relative flex justify-center mb-8 md:mb-8 xl:mb-32">
         <h1
           data-animate
           className="font-ragick text-[70px] sm:text-[90px] md:text-[100px] lg:text-[120px] xl:text-[200px] text-primary z-10 transition-all duration-1000 leading-none"
@@ -80,7 +80,7 @@ export default function Home() {
         {/* Hero photo overlapping the text */}
         <div
           data-animate
-          className="absolute top-6 right-0 sm:top-8 sm:right-4 md:mt-10 md:right-auto md:ml-30 z-20 transition-all duration-1000"
+          className="absolute top-6 right-0 sm:top-8 sm:right-4 md:left-[53%] md:right-auto md:top-12 md:-translate-x-1/2 xl:top-8 xl:left-auto xl:mt-10 xl:ml-30 xl:translate-x-0 z-20 transition-all duration-1000"
           style={{ opacity: 0, transform: 'scale(0.85)' }}
         >
           <Image
@@ -88,29 +88,29 @@ export default function Home() {
             alt="Derbi Tri Julian"
             width={100}
             height={300}
-            className="w-[145px] sm:w-[160px] md:w-[200px] lg:w-[250px] xl:w-[310px]"
+            className="w-36.25 sm:w-40 md:w-44 lg:w-50 xl:w-77.5"
             priority
           />
         </div>
       </div>
 
       {/* Content section: Text left, Badges right */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full px-4 md:px-0 mt-4 md:mt-16">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full px-4 md:px-0 mt-4 md:mt-10 xl:mt-16">
         {/* Left side: Text content */}
         <div
           data-animate
-          className="flex-1 max-w-[60%] sm:max-w-xl transition-all duration-1000 w-full relative z-30"
+          className="flex-1 max-w-[60%] md:max-w-[36%] xl:max-w-xl transition-all duration-1000 w-full relative z-30"
           style={{ opacity: 0, transform: 'translateX(-50px)' }}
         >
-          <p className="text-black font-futura font-book text-[12px] sm:text-[14px] md:text-[20px] lg:text-[22px] mb-2">
+          <p className="text-black font-futura font-book text-[12px] sm:text-[14px] md:text-[17px] lg:text-[19px] xl:text-[22px] mb-2">
             Hey, I am Derbi Tri Julian
           </p>
-          <h2 className="text-primary font-ragick text-[20px] sm:text-[24px] md:text-[48px] lg:text-[56px] leading-[0.95] mb-2">
+          <h2 className="text-primary font-ragick text-[20px] sm:text-[24px] md:text-[34px] lg:text-[44px] xl:text-[56px] leading-[0.95] mb-2">
             WEB & MOBILE
             <br />
             DEVELOPER
           </h2>
-          <p className="text-black font-futura font-book text-[11px] sm:text-[13px] md:text-[20px] lg:text-[24px] leading-relaxed mb-4">
+          <p className="text-black font-futura font-book text-[11px] sm:text-[13px] md:text-[17px] lg:text-[19px] xl:text-[24px] leading-relaxed mb-4">
             Building digital experiences that are functional, intuitive, and
             easy to use.
           </p>
@@ -122,7 +122,7 @@ export default function Home() {
               <a
                 href={getCvDownloadUrl(cvUrl)}
                 download
-                className="bg-primary text-white px-3 py-1 rounded-full font-futura font-book text-[10px] whitespace-nowrap transition-all duration-300 cursor-pointer hover:bg-white hover:text-primary border border-primary"
+                className="bg-primary text-white px-3 py-1 sm:px-4 sm:py-2 md:px-5 md:py-2 rounded-full font-futura font-book text-[10px] sm:text-xs md:text-sm whitespace-nowrap transition-all duration-300 cursor-pointer hover:bg-white hover:text-primary border border-primary"
               >
                 Download CV
               </a>
@@ -131,7 +131,7 @@ export default function Home() {
             {/* Contact Me button */}
             <a
               href="#contact"
-              className="border border-primary text-primary px-3 py-1 rounded-full font-futura font-book text-[10px] whitespace-nowrap transition-all duration-300 cursor-pointer hover:bg-primary hover:text-white"
+              className="border border-primary text-primary px-3 py-1 sm:px-4 sm:py-2 md:px-5 md:py-2 rounded-full font-futura font-book text-[10px] sm:text-xs md:text-sm whitespace-nowrap transition-all duration-300 cursor-pointer hover:bg-primary hover:text-white"
             >
               Contact Me
             </a>
@@ -141,7 +141,7 @@ export default function Home() {
         {/* Right side: Buttons for desktop */}
         <div
           data-animate
-          className="hidden md:flex flex-shrink-0 md:w-auto transition-all duration-1000"
+          className="hidden md:flex shrink-0 md:w-auto transition-all duration-1000"
           style={{ opacity: 0, transform: 'translateX(50px)' }}
         >
           <div className="flex flex-col items-center gap-4 md:gap-6">
@@ -150,7 +150,7 @@ export default function Home() {
               <a
                 href={getCvDownloadUrl(cvUrl)}
                 download
-                className="bg-primary text-white px-6 py-2 md:px-10 md:py-3 rounded-full font-futura font-book text-sm md:text-lg whitespace-nowrap transition-all duration-1000 cursor-pointer hover:bg-white hover:text-primary border border-primary"
+                className="bg-primary text-white px-6 py-2 md:px-11 md:py-3.5 rounded-full font-futura font-book text-sm md:text-xl whitespace-nowrap transition-all duration-1000 cursor-pointer hover:bg-white hover:text-primary border border-primary"
               >
                 Download CV
               </a>
@@ -160,7 +160,7 @@ export default function Home() {
             <a
               href="#contact"
               data-animate
-              className="border border-primary text-primary px-6 py-2 md:px-10 md:py-3 rounded-full font-futura font-book text-sm md:text-lg whitespace-nowrap transition-all duration-1000 cursor-pointer hover:bg-primary hover:text-white"
+              className="border border-primary text-primary px-6 py-2 md:px-11 md:py-3.5 rounded-full font-futura font-book text-sm md:text-xl whitespace-nowrap transition-all duration-1000 cursor-pointer hover:bg-primary hover:text-white"
               style={{
                 opacity: 0,
                 transform: 'translateX(30px)',

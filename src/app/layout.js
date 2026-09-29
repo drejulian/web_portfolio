@@ -39,7 +39,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${futura.variable} ${ragick.variable}`}>
       <body className="antialiased">
         <Navbar />
-        <main className="mx-4 md:mx-30">{children}</main>
+        <main className="mx-4 md:mx-8 lg:mx-16 xl:mx-30">{children}</main>
       </body>
     </html>
   );

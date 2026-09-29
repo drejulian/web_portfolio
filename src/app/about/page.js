@@ -84,7 +84,7 @@ export default function About() {
   ];
 
   return (
-    <div className="mt-6 md:mt-10">
+    <div className="mt-6 md:mt-5">
       <div className="grid gap-6 md:gap-9">
         <div
           data-animate
