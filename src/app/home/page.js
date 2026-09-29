@@ -71,7 +71,7 @@ export default function Home() {
       <div className="relative flex justify-center mb-8 md:mb-8 xl:mb-32">
         <h1
           data-animate
-          className="font-ragick text-[70px] sm:text-[90px] md:text-[100px] lg:text-[120px] xl:text-[200px] text-primary z-10 transition-all duration-1000 leading-none"
+          className="font-ragick text-[70px] sm:text-[90px] md:text-[100px] lg:text-[120px] xl:text-[150px] 2xl:text-[200px] text-primary z-10 transition-all duration-1000 leading-none"
           style={{ opacity: 0, transform: 'translateY(-30px)' }}
         >
           Portfolio
@@ -88,7 +88,7 @@ export default function Home() {
             alt="Derbi Tri Julian"
             width={100}
             height={300}
-            className="w-36.25 sm:w-40 md:w-44 lg:w-50 xl:w-77.5"
+            className="w-36.25 sm:w-40 md:w-44 lg:w-50 xl:w-65 2xl:w-77.5"
             priority
           />
         </div>
@@ -102,15 +102,15 @@ export default function Home() {
           className="flex-1 max-w-[60%] md:max-w-[36%] xl:max-w-xl transition-all duration-1000 w-full relative z-30"
           style={{ opacity: 0, transform: 'translateX(-50px)' }}
         >
-          <p className="text-black font-futura font-book text-[12px] sm:text-[14px] md:text-[17px] lg:text-[19px] xl:text-[22px] mb-2">
+          <p className="text-black font-futura font-book text-[12px] sm:text-[14px] md:text-[17px] lg:text-[19px] xl:text-[20px] 2xl:text-[22px] mb-2">
             Hey, I am Derbi Tri Julian
           </p>
-          <h2 className="text-primary font-ragick text-[20px] sm:text-[24px] md:text-[34px] lg:text-[44px] xl:text-[56px] leading-[0.95] mb-2">
+          <h2 className="text-primary font-ragick text-[20px] sm:text-[24px] md:text-[34px] lg:text-[44px] xl:text-[48px] 2xl:text-[56px] leading-[0.95] mb-2">
             WEB & MOBILE
             <br />
             DEVELOPER
           </h2>
-          <p className="text-black font-futura font-book text-[11px] sm:text-[13px] md:text-[17px] lg:text-[19px] xl:text-[24px] leading-relaxed mb-4">
+          <p className="text-black font-futura font-book text-[11px] sm:text-[13px] md:text-[17px] lg:text-[19px] xl:text-[20px] 2xl:text-[24px] leading-relaxed mb-4">
             Building digital experiences that are functional, intuitive, and
             easy to use.
           </p>
@@ -150,7 +150,7 @@ export default function Home() {
               <a
                 href={getCvDownloadUrl(cvUrl)}
                 download
-                className="bg-primary text-white px-6 py-2 md:px-11 md:py-3.5 rounded-full font-futura font-book text-sm md:text-xl whitespace-nowrap transition-all duration-1000 cursor-pointer hover:bg-white hover:text-primary border border-primary"
+                className="bg-primary text-white px-6 py-2 md:px-9 md:py-3 xl:px-10 xl:py-3 xl:text-lg 2xl:px-11 2xl:py-3.5 2xl:text-xl rounded-full font-futura font-book text-sm md:text-xl whitespace-nowrap transition-all duration-1000 cursor-pointer hover:bg-white hover:text-primary border border-primary"
               >
                 Download CV
               </a>
@@ -160,7 +160,7 @@ export default function Home() {
             <a
               href="#contact"
               data-animate
-              className="border border-primary text-primary px-6 py-2 md:px-11 md:py-3.5 rounded-full font-futura font-book text-sm md:text-xl whitespace-nowrap transition-all duration-1000 cursor-pointer hover:bg-primary hover:text-white"
+              className="border border-primary text-primary px-6 py-2 md:px-9 md:py-3 xl:px-10 xl:py-3 xl:text-lg 2xl:px-11 2xl:py-3.5 2xl:text-xl rounded-full font-futura font-book text-sm md:text-xl whitespace-nowrap transition-all duration-1000 cursor-pointer hover:bg-primary hover:text-white"
               style={{
                 opacity: 0,
                 transform: 'translateX(30px)',
