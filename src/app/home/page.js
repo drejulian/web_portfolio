@@ -68,7 +68,7 @@ export default function Home() {
   return (
     <div className="mt-8 sm:mt-10 md:mt-13">
       {/* Portfolio heading with overlapping photo */}
-      <div className="relative flex justify-center mb-8 md:mb-8 xl:mb-32">
+      <div className="relative flex justify-center mb-8 md:mb-8 xl:mb-24">
         <h1
           data-animate
           className="font-ragick text-[70px] sm:text-[90px] md:text-[100px] lg:text-[120px] xl:text-[150px] text-primary z-10 transition-all duration-1000 leading-none"
@@ -95,7 +95,7 @@ export default function Home() {
       </div>
 
       {/* Content section: Text left, Badges right */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full px-4 md:px-0 mt-4 md:mt-10 xl:mt-16">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full px-4 md:px-0 mt-4 md:mt-10 xl:mt-12">
         {/* Left side: Text content */}
         <div
           data-animate
