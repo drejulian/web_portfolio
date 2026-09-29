@@ -73,34 +73,41 @@ export default function Navbar() {
     >
       <div
         className="
-        bg-white
-       rounded-4xl
+        bg-white/95 md:bg-white
+        rounded-full md:rounded-4xl
         flex items-center justify-between
-        px-3 py-3 md:px-6 md:py-6 
+        px-4 py-2.5 md:px-6 md:py-6
         transition-all duration-300 ease-in-out
-        shadow-[0_0_4px_rgba(0,0,0,0.15)]
+        shadow-[0_2px_12px_rgba(0,0,0,0.08)] ring-1 ring-black/4
+        backdrop-blur-lg md:backdrop-blur-none
       "
       >
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="shrink-0 cursor-pointer font-futura font-bold text-base md:text-2xl text-primary"
+          className="shrink-0 cursor-pointer font-futura font-bold text-lg md:text-2xl text-primary"
         >
           dre
         </button>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden flex flex-col gap-1 cursor-pointer z-50"
+          type="button"
+          aria-label={
+            isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'
+          }
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-navigation"
+          className="md:hidden relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-1.25 rounded-full transition-colors hover:bg-primary/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <span
-            className={`w-5 h-0.5 bg-[#6d001a] block transition-all ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}
+            className={`block h-0.5 w-5 rounded-full bg-primary transition-all duration-300 ${isMenuOpen ? 'translate-y-1.75 rotate-45' : ''}`}
           ></span>
           <span
-            className={`w-5 h-0.5 bg-[#6d001a] block transition-all ${isMenuOpen ? 'opacity-0' : ''}`}
+            className={`block h-0.5 w-5 rounded-full bg-primary transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}
           ></span>
           <span
-            className={`w-5 h-0.5 bg-[#6d001a] block transition-all ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}
+            className={`block h-0.5 w-5 rounded-full bg-primary transition-all duration-300 ${isMenuOpen ? '-translate-y-1.75 -rotate-45' : ''}`}
           ></span>
         </button>
 
@@ -166,13 +173,24 @@ export default function Navbar() {
 
       {/* Mobile Menu Overlay */}
       <div
+        id="mobile-navigation"
         className={`
-        fixed inset-0 bg-white z-40 md:hidden flex flex-col items-center justify-center gap-8
-        transition-all duration-300 ease-in-out
-        ${isMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full pointer-events-none'}
+        fixed inset-x-0 top-21 bottom-0 z-40 md:hidden
+        transition-all duration-300 ease-out
+        ${isMenuOpen ? 'visible opacity-100' : 'invisible pointer-events-none opacity-0'}
       `}
+        aria-hidden={!isMenuOpen}
+        inert={!isMenuOpen}
       >
-        <div className="flex flex-col items-center gap-8 font-futura font-book text-[32px]">
+        <button
+          type="button"
+          aria-label="Close navigation menu"
+          className="absolute inset-0 h-full w-full bg-black/15 backdrop-blur-[2px]"
+          onClick={() => setIsMenuOpen(false)}
+        />
+        <div
+          className={`absolute inset-x-4 top-3 rounded-3xl bg-white p-3 shadow-[0_16px_40px_rgba(0,0,0,0.16)] ring-1 ring-black/6 transition-transform duration-300 ease-out ${isMenuOpen ? 'translate-y-0' : '-translate-y-2'}`}
+        >
           {navLinks.map((link) => (
             <button
               key={link.name}
@@ -186,33 +204,38 @@ export default function Navbar() {
                     ?.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className={`transition-colors duration-200 ${
+              className={`flex w-full items-center justify-between rounded-2xl px-4 py-3.5 text-left font-futura text-lg transition-colors duration-200 ${
                 activeSection === link.href.replace('#', '')
-                  ? 'text-[#6d001a]'
-                  : 'text-black hover:text-[#6d001a]'
+                  ? 'bg-primary/5 font-bold text-primary'
+                  : 'text-black/75 hover:bg-black/4 hover:text-primary'
               }`}
             >
               {link.name}
+              <span
+                className={`h-2 w-2 rounded-full ${activeSection === link.href.replace('#', '') ? 'bg-primary' : 'bg-transparent'}`}
+              />
             </button>
           ))}
-        </div>
-        <div className="flex items-center gap-8 mt-8">
-          <a
-            href="https://instagram.com/drejulian_"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Instagram"
-          >
-            <Image src="/svg/ig.svg" alt="Instagram" width={40} height={40} />
-          </a>
-          <a
-            href="https://github.com/drejulian"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="GitHub"
-          >
-            <Image src="/svg/github.svg" alt="GitHub" width={40} height={40} />
-          </a>
+          <div className="mt-2 flex items-center justify-between border-t border-black/10 px-3 pt-3">
+            <a
+              href="https://instagram.com/drejulian_"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2 rounded-xl px-2 py-2 font-futura text-sm text-black/70 transition-colors hover:bg-black/4 hover:text-primary"
+            >
+              <Image src="/svg/ig.svg" alt="" width={20} height={20} />
+              Instagram
+            </a>
+            <a
+              href="https://github.com/drejulian"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2 rounded-xl px-2 py-2 font-futura text-sm text-black/70 transition-colors hover:bg-black/4 hover:text-primary"
+            >
+              <Image src="/svg/github.svg" alt="" width={20} height={20} />
+              GitHub
+            </a>
+          </div>
         </div>
       </div>
     </nav>

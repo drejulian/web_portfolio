@@ -95,7 +95,7 @@ export default function Home() {
       </div>
 
       {/* Content section: Text left, Badges right */}
-      <div className="flex flex-col md:flex-row justify-between items-start w-full px-4 md:px-0 mt-4 md:mt-16">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full px-4 md:px-0 mt-4 md:mt-16">
         {/* Left side: Text content */}
         <div
           data-animate
@@ -150,7 +150,7 @@ export default function Home() {
               <a
                 href={getCvDownloadUrl(cvUrl)}
                 download
-                className="bg-primary text-white px-6 py-2 md:px-8 md:py-2.5 rounded-full font-futura font-book text-sm md:text-base whitespace-nowrap transition-all duration-1000 cursor-pointer hover:bg-white hover:text-primary border border-primary"
+                className="bg-primary text-white px-6 py-2 md:px-10 md:py-3 rounded-full font-futura font-book text-sm md:text-lg whitespace-nowrap transition-all duration-1000 cursor-pointer hover:bg-white hover:text-primary border border-primary"
               >
                 Download CV
               </a>
@@ -160,7 +160,7 @@ export default function Home() {
             <a
               href="#contact"
               data-animate
-              className="border border-primary text-primary px-6 py-2 md:px-8 md:py-2.5 rounded-full font-futura font-book text-sm md:text-base whitespace-nowrap transition-all duration-1000 cursor-pointer hover:bg-primary hover:text-white"
+              className="border border-primary text-primary px-6 py-2 md:px-10 md:py-3 rounded-full font-futura font-book text-sm md:text-lg whitespace-nowrap transition-all duration-1000 cursor-pointer hover:bg-primary hover:text-white"
               style={{
                 opacity: 0,
                 transform: 'translateX(30px)',
