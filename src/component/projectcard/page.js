@@ -28,7 +28,7 @@ export default function ProjectCard({ project, onDetailClick }) {
           <p className="text-black font-futura font-bold text-xl md:text-2xl">
             {project.title}
           </p>
-          <p className="text-black font-futura font-book text-sm md:text-base">
+          <p className="text-black font-futura font-book text-sm md:text-base line-clamp-3">
             {project.description}
           </p>
           <button
