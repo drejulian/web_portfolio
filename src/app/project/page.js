@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import ProjectCard from '@/component/projectcard/page';
 import ProjectModal from '@/component/projectmodal/page';
 import { collection, getDocs, query, where } from 'firebase/firestore';
@@ -68,7 +69,7 @@ export default function Project() {
       .forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
-  }, [projects]);
+  }, [projects, currentIndex]);
 
   return (
     <div className="mt-10">
@@ -89,11 +90,14 @@ export default function Project() {
             className="transition-all duration-1000"
             style={{ opacity: 0, transform: 'translateX(20px)' }}
           >
-            <button className="bg-primary px-5 py-1.5 md:px-8 md:py-2.5 rounded-full hover:bg-opacity-90 transition-all">
+            <Link
+              href="/works"
+              className="inline-flex bg-primary px-5 py-1.5 md:px-8 md:py-2.5 rounded-full hover:bg-opacity-90 transition-all"
+            >
               <p className="text-white font-futura font-book text-xs md:text-sm whitespace-nowrap">
                 View All Works
               </p>
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -105,13 +109,21 @@ export default function Project() {
                 key={`mobile-project-${projects[currentIndex].id}-${currentIndex}`}
                 project={{
                   ...projects[currentIndex],
-                  image: projects[currentIndex].image || projects[currentIndex].imageUrl,
-                  imageUrls: projects[currentIndex].imageUrls || (projects[currentIndex].imageUrl ? [projects[currentIndex].imageUrl] : []),
-                  link: projects[currentIndex].link || projects[currentIndex].projectUrl,
+                  image:
+                    projects[currentIndex].image ||
+                    projects[currentIndex].imageUrl,
+                  imageUrls:
+                    projects[currentIndex].imageUrls ||
+                    (projects[currentIndex].imageUrl
+                      ? [projects[currentIndex].imageUrl]
+                      : []),
+                  link:
+                    projects[currentIndex].link ||
+                    projects[currentIndex].projectUrl,
                 }}
                 onDetailClick={handleDetailClick}
               />
-              
+
               {projects.length > 1 && (
                 <>
                   <button
@@ -119,17 +131,35 @@ export default function Project() {
                     className="absolute left-2 top-1/2 -translate-y-1/2 bg-primary text-white p-3 rounded-full hover:bg-opacity-90 transition-all shadow-lg z-10"
                     aria-label="Previous project"
                   >
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
                       <polyline points="15 18 9 12 15 6" />
                     </svg>
                   </button>
-                  
+
                   <button
                     onClick={goToNext}
                     className="absolute right-2 top-1/2 -translate-y-1/2 bg-primary text-white p-3 rounded-full hover:bg-opacity-90 transition-all shadow-lg z-10"
                     aria-label="Next project"
                   >
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
                       <polyline points="9 18 15 12 9 6" />
                     </svg>
                   </button>
@@ -148,7 +178,9 @@ export default function Project() {
               )}
             </div>
           ) : (
-            <p className="text-center text-gray-500 py-10">No projects available</p>
+            <p className="text-center text-gray-500 py-10">
+              No projects available
+            </p>
           )}
         </div>
 

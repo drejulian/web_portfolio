@@ -22,6 +22,11 @@ export default function Navbar() {
       const scrolledToBottom =
         window.scrollY + windowHeight >= documentHeight - 100;
 
+      if (window.location.pathname !== '/') {
+        setActiveSection('');
+        return;
+      }
+
       if (scrolledToBottom) {
         setActiveSection('contact');
         return;
@@ -83,7 +88,13 @@ export default function Navbar() {
       "
       >
         <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onClick={() => {
+            if (window.location.pathname === '/') {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+              window.location.href = '/';
+            }
+          }}
           className="shrink-0 cursor-pointer font-futura font-bold text-lg md:text-2xl text-primary"
         >
           dre
@@ -118,11 +129,20 @@ export default function Navbar() {
               key={link.name}
               onClick={() => {
                 if (link.name === 'Home') {
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                  if (window.location.pathname === '/') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  } else {
+                    window.location.href = '/#home';
+                  }
                 } else {
-                  document
-                    .getElementById(link.href.replace('#', ''))
-                    ?.scrollIntoView({ behavior: 'smooth' });
+                  const targetId = link.href.replace('#', '');
+                  const target = document.getElementById(targetId);
+
+                  if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    window.location.href = `/${link.href}`;
+                  }
                 }
               }}
               className={`cursor-pointer transition-colors duration-200 relative ${
