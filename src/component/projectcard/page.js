@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 
-export default function ProjectCard({ project, onDetailClick }) {
+export default function ProjectCard({ project, onDetailClick, compact = false }) {
   const displayImage = project.imageUrls?.[0] || project.image;
 
   return (
@@ -17,25 +17,37 @@ export default function ProjectCard({ project, onDetailClick }) {
             alt={project.title}
             width={651}
             height={373}
-            className="w-full h-auto rounded-t-2xl"
+            className={`w-full rounded-t-2xl ${compact ? 'aspect-[4/3] object-cover' : 'h-auto'}`}
           />
         ) : (
-          <div className="w-full h-[373px] bg-gray-200 flex items-center justify-center rounded-t-2xl">
-            <p className="text-gray-400 font-futura text-lg">No Image</p>
+          <div
+            className={`w-full bg-gray-200 flex items-center justify-center rounded-t-2xl ${compact ? 'aspect-[4/3]' : 'h-[373px]'}`}
+          >
+            <p className="text-gray-400 font-futura text-sm md:text-lg">
+              No Image
+            </p>
           </div>
         )}
-        <div className="px-7 py-7 grid gap-2">
-          <p className="text-black font-futura font-bold text-xl md:text-2xl">
+        <div
+          className={`grid gap-2 ${compact ? 'px-3 py-3 sm:px-4 sm:py-4 md:px-5' : 'px-7 py-7'}`}
+        >
+          <p
+            className={`text-black font-futura font-bold ${compact ? 'line-clamp-2 text-sm sm:text-base md:text-lg' : 'text-xl md:text-2xl'}`}
+          >
             {project.title}
           </p>
-          <p className="text-black font-futura font-book text-sm md:text-base line-clamp-3">
+          <p
+            className={`text-black font-futura font-book line-clamp-3 ${compact ? 'text-[11px] leading-relaxed sm:text-xs md:text-sm' : 'text-sm md:text-base'}`}
+          >
             {project.description}
           </p>
           <button
             onClick={() => onDetailClick(project)}
-            className="flex items-center gap-3.5 w-fit hover:underline underline-offset-4 mt-2 cursor-pointer"
+            className={`flex items-center w-fit hover:underline underline-offset-4 mt-2 cursor-pointer ${compact ? 'gap-2' : 'gap-3.5'}`}
           >
-            <p className="text-black font-futura font-book text-sm md:text-base">
+            <p
+              className={`text-black font-futura font-book ${compact ? 'text-xs sm:text-sm' : 'text-sm md:text-base'}`}
+            >
               Detail
             </p>
             <Image

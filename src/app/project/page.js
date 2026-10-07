@@ -10,7 +10,6 @@ export default function Project() {
   const [projects, setProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleDetailClick = (project) => {
     setSelectedProject(project);
@@ -20,14 +19,6 @@ export default function Project() {
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setTimeout(() => setSelectedProject(null), 300);
-  };
-
-  const goToPrevious = () => {
-    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : projects.length - 1));
-  };
-
-  const goToNext = () => {
-    setCurrentIndex((prev) => (prev < projects.length - 1 ? prev + 1 : 0));
   };
 
   useEffect(() => {
@@ -69,7 +60,7 @@ export default function Project() {
       .forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
-  }, [projects, currentIndex]);
+  }, [projects]);
 
   return (
     <div className="mt-10">
@@ -101,92 +92,34 @@ export default function Project() {
           </div>
         </div>
 
-        {/* Mobile Carousel */}
-        <div className="lg:hidden relative">
+        {/* Mobile Grid */}
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5 lg:hidden">
           {projects.length > 0 ? (
-            <div className="relative" key={`carousel-${currentIndex}`}>
+            projects.slice(0, 4).map((project) => (
               <ProjectCard
-                key={`mobile-project-${projects[currentIndex].id}-${currentIndex}`}
+                key={project.id}
+                compact
                 project={{
-                  ...projects[currentIndex],
-                  image:
-                    projects[currentIndex].image ||
-                    projects[currentIndex].imageUrl,
+                  ...project,
+                  image: project.image || project.imageUrl,
                   imageUrls:
-                    projects[currentIndex].imageUrls ||
-                    (projects[currentIndex].imageUrl
-                      ? [projects[currentIndex].imageUrl]
-                      : []),
-                  link:
-                    projects[currentIndex].link ||
-                    projects[currentIndex].projectUrl,
+                    project.imageUrls ||
+                    (project.imageUrl ? [project.imageUrl] : []),
+                  link: project.link || project.projectUrl,
                 }}
                 onDetailClick={handleDetailClick}
               />
-
-              {projects.length > 1 && (
-                <>
-                  <button
-                    onClick={goToPrevious}
-                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-primary text-white p-3 rounded-full hover:bg-opacity-90 transition-all shadow-lg z-10"
-                    aria-label="Previous project"
-                  >
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <polyline points="15 18 9 12 15 6" />
-                    </svg>
-                  </button>
-
-                  <button
-                    onClick={goToNext}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-primary text-white p-3 rounded-full hover:bg-opacity-90 transition-all shadow-lg z-10"
-                    aria-label="Next project"
-                  >
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <polyline points="9 18 15 12 9 6" />
-                    </svg>
-                  </button>
-
-                  <div className="flex justify-center gap-2 mt-4">
-                    {projects.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setCurrentIndex(index)}
-                        className={`w-2 h-2 rounded-full transition-all ${index === currentIndex ? 'bg-primary w-6' : 'bg-gray-300'}`}
-                        aria-label={`Go to project ${index + 1}`}
-                      />
-                    ))}
-                  </div>
-                </>
-              )}
-            </div>
+            ))
           ) : (
-            <p className="text-center text-gray-500 py-10">
+            <p className="col-span-2 py-10 text-center text-gray-500 md:col-span-3">
               No projects available
             </p>
           )}
         </div>
 
         {/* Desktop Grid */}
-        <div className="hidden lg:grid lg:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
-          {projects.map((project) => (
+        <div className="hidden lg:grid lg:grid-cols-3 gap-8 justify-items-center">
+          {projects.slice(0, 3).map((project) => (
             <ProjectCard
               key={project.id}
               project={{
